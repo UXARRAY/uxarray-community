@@ -53,7 +53,7 @@ Why this entry exists and who it's for.
 Each entry pins its own environment, so notebooks stay runnable even as UXarray evolves:
 
 ```bash
-cd entries/2026/2026-03-12_some-entry
+cd entries/2026/2026-10-12_some-entry
 conda env create -f environment.yml
 conda activate <env-name-from-file>
 jupyter lab
