@@ -1,0 +1,8 @@
+name: 2026-10-20_uxarray_tutorial_and_collaboratory
+channels:
+  - conda-forge
+dependencies:
+  - fastparquet
+  - jupyterlab
+  - kerchunk
+  - uxarray
