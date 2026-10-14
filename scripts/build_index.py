@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ENTRIES = ROOT / "entries"
 INDEX = ROOT / "INDEX.md"
 
-NAME_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})_[a-z0-9]+(?:-[a-z0-9]+)*$")
+NAME_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})_[a-z0-9]+(?:[-_][a-z0-9]+)*$")
 FRONT_MATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*(?:\n|\Z)", re.DOTALL)
 TYPES = {"demo", "question", "workshop", "other"}
 STATUSES = {"active", "superseded"}
@@ -34,14 +34,12 @@ def load_entry(path: Path) -> tuple[dict | None, list[str]]:
 
     match = NAME_RE.match(path.name)
     if not match:
-        return None, [f"{rel}: folder name must be YYYY-MM-DD_slug (lowercase, digits, hyphens)"]
+        return None, [f"{rel}: folder name must be YYYY-MM-DD_slug (lowercase, digits, hyphens/underscores)"]
     year, month, day = (int(g) for g in match.groups())
     try:
         date = dt.date(year, month, day)
     except ValueError:
         return None, [f"{rel}: {path.name[:10]} is not a valid date"]
-    if path.parent.name != str(year):
-        errors.append(f"{rel}: should be under entries/{year}/")
 
     readme = path / "README.md"
     if not readme.is_file():
@@ -93,15 +91,11 @@ def collect() -> tuple[list[dict], list[str]]:
     entries, errors = [], []
     if not ENTRIES.is_dir():
         return entries, errors
-    for year_dir in sorted(p for p in ENTRIES.iterdir() if p.is_dir()):
-        if not re.fullmatch(r"\d{4}", year_dir.name):
-            errors.append(f"{year_dir.relative_to(ROOT)}: top-level folders in entries/ must be years")
-            continue
-        for path in sorted(p for p in year_dir.iterdir() if p.is_dir()):
-            entry, errs = load_entry(path)
-            errors.extend(errs)
-            if entry:
-                entries.append(entry)
+    for path in sorted(p for p in ENTRIES.iterdir() if p.is_dir()):
+        entry, errs = load_entry(path)
+        errors.extend(errs)
+        if entry:
+            entries.append(entry)
     return entries, errors
 
 

@@ -16,4 +16,4 @@ repos:
     hooks:
       - id: nbstripout
         # To keep outputs for a showcase entry, add it here, e.g.:
-        # exclude: ^entries/2026/2026-10-14_agu-workshop/
+        # exclude: ^entries/2026-10-14_agu-workshop/

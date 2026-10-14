@@ -13,11 +13,11 @@
 2. Copy the template into a new dated folder:
 
    ```bash
-   cp -r templates/entry entries/2026/2026-10-14_my-short-slug
+   cp -r templates/entry entries/2026-10-14_my-short-slug
    ```
 
    Folder names must be `YYYY-MM-DD_slug`, where the slug is lowercase letters, digits,
-   and hyphens, and the folder sits under the matching year.
+   hyphens, and underscores.
 3. Fill in the metadata block at the top of `README.md`. Required fields are
    `title`, `type`, `authors`, and `uxarray_version` (quote the version, e.g. `"2026.9.1"`).
 4. Pin your environment in `environment.yml`, especially the UXarray version you used.
