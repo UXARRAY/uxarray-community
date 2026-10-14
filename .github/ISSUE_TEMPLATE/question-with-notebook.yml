@@ -1,0 +1,45 @@
+name: Question with notebook
+description: Ask the UXarray team a question and share a notebook that shows it.
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out! If your question doesn't need a notebook, consider
+        [UXarray Discussions](https://github.com/UXARRAY/uxarray/discussions) instead.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What are you trying to do, and what's getting in the way?
+    validations:
+      required: true
+  - type: textarea
+    id: notebook
+    attributes:
+      label: Notebook
+      description: >
+        Attach the notebook (zip it if GitHub won't accept .ipynb), link to a gist or repo,
+        or paste the relevant code.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: UXarray version
+      description: Output of `python -c "import uxarray; print(uxarray.__version__)"`
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data
+      description: >
+        Which model or grid (MPAS, ICON, SCRIP, UGRID, ...)? How can we access the data,
+        or a small sample of it?
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, and where you're running (laptop, Derecho, Casper, cloud...).

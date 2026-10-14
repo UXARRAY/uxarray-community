@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: UXarray Discussions
+    url: https://github.com/UXARRAY/uxarray/discussions
+    about: General questions and ideas that don't need a notebook.
+  - name: UXarray bug reports
+    url: https://github.com/UXARRAY/uxarray/issues
+    about: Bugs in UXarray itself belong in the main repository.

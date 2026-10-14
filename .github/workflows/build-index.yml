@@ -1,0 +1,38 @@
+name: Build index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "entries/**"
+      - "scripts/build_index.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: python scripts/build_index.py
+      - name: Commit INDEX.md if it changed
+        run: |
+          if git diff --quiet -- INDEX.md; then
+            echo "INDEX.md is up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add INDEX.md
+          git commit -m "Update INDEX.md [skip ci]"
+          git push

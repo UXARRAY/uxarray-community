@@ -1,0 +1,10 @@
+# Rename the environment so it's unique to this entry.
+name: uxarray-community-entry
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - uxarray=2026.9.1
+  - jupyterlab
+  - matplotlib
+  # Add anything else the notebook needs, e.g. holoviews, cartopy, dask

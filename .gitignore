@@ -1,0 +1,15 @@
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+.env
+
+# Data belongs elsewhere; see CONTRIBUTING.md (use `git add -f` for tiny samples)
+*.nc
+*.nc4
+*.grib
+*.grib2
+*.zarr/
+*.h5
+*.hdf5
