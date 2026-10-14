@@ -1,4 +1,4 @@
-name: 2026-10-20_uxarray_tutorial_and_collaboratory
+name: 2026-10-20_uxarray_tutorial_collab
 channels:
   - conda-forge
 dependencies:
