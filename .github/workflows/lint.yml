@@ -6,6 +6,18 @@ on:
     branches: [main]
 
 jobs:
+  pre-commit-on-push:
+    # pre-commit.ci only checks pull requests; this is the safety net for
+    # commits pushed directly to main without going through a PR.
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: pre-commit/action@v3.0.1
+
   validate-entries:
     runs-on: ubuntu-latest
     steps:
