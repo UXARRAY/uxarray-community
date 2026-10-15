@@ -17,7 +17,7 @@ entries/
     ├── environment.yml    # pinned environment, including the UXarray version
     └── notebooks/         # *.ipynb notebooks
         └── *.ipynb
-    
+
 ```
 
 ### Entries
