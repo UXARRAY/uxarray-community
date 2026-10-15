@@ -13,9 +13,10 @@ Everything is organized by date. Browse the full catalog in **[INDEX.md](INDEX.m
 entries/
 └── YYYY-MM-DD_short-slug/
     ├── README.md          # metadata + description of the entry
+    ├── data.md            # where to get the data used (data is not stored here)
     ├── environment.yml    # pinned environment, including the UXarray version
-    ├── *.ipynb            # notebooks
-    └── data.md            # where to get the data used (data is not stored here)
+    └── notebooks/         # *.ipynb notebooks
+        └── *.ipynb
     
 ```
 

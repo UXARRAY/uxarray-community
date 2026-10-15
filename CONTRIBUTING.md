@@ -38,6 +38,9 @@
 - **Notebook outputs are stripped** on commit by `nbstripout` to keep diffs reviewable.
   If an entry is a polished showcase that should display outputs on GitHub, add its path
   to the `exclude` pattern of the nbstripout hook in `.pre-commit-config.yaml`.
+- **Forgot to install the hooks?** The `pre-commit.ci` bot also runs them on every PR. If it
+  flags a fixable issue, comment `pre-commit.ci autofix` (or add the `pre-commit.ci run`
+  label) to have it push a fixup commit.
 - **Don't edit `INDEX.md`.** It's regenerated automatically after merges.
 - **Don't rewrite old entries to new APIs.** Add a new entry and set `status: superseded`
   on the old one, linking to its replacement.

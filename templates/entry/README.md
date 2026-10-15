@@ -16,7 +16,7 @@ One or two paragraphs: what this entry shows or asks, and who it's for.
 
 ## Contents
 
-- `notebook.ipynb`: what it does
+- `notebooks/notebook.ipynb`: what it does
 - `data.md`: where the data comes from
 
 ## How to run
