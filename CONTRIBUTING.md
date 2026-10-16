@@ -51,3 +51,11 @@ You can validate your entry locally:
 pip install pyyaml
 python scripts/build_index.py --check
 ```
+
+To preview how your entry looks on the community site (notebooks are rendered from their
+committed outputs, never executed):
+
+```bash
+pip install -r docs/requirements.txt
+sphinx-build -b html docs docs/_build/html   # then open docs/_build/html/index.html
+```

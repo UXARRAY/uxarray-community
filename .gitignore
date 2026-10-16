@@ -13,3 +13,7 @@ __pycache__/
 *.zarr/
 *.h5
 *.hdf5
+
+# Docs build output (docs/entries/ is generated from entries/)
+docs/_build/
+docs/entries/
