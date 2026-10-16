@@ -1,0 +1,7 @@
+I have a mesh and dataset file on NCAR's Glade HPC storage. So, use my Globus compute endpoint and access data on Glade and make computations over there. 
+
+Mesh (CESM ne120 spectral element): /glade/p/cesmdata/cseg/inputdata/share/scripgrids/ne120np4_pentagons_100310.nc
+
+Data — 6-hourly PRECT, one file per year, 1979 through 1988, under /gdex/data/d651007/b.e13.BHISTC5.ne120_t12.cesm-ihesp-hires1.0.30-1920-2005.002/atm/proc/tseries/hour_6/, named ...cam.h2.PRECT.1979010100-1980010100.nc through ...cam.h2.PRECT.1988010100-1989010100.nc.
+
+Can you give me a ten-year average precipitation map over the continental US? PRECT comes out in m/s and I'd like it in mm/day. Run everything on Casper — don't pull the files over. When you're done, tell me exactly what ran where, so I can put it in a methods section.
