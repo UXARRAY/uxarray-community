@@ -22,7 +22,7 @@ INDEX = ROOT / "INDEX.md"
 
 NAME_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})_[a-z0-9]+(?:[-_][a-z0-9]+)*$")
 FRONT_MATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*(?:\n|\Z)", re.DOTALL)
-TYPES = {"demo", "question", "workshop", "other"}
+TYPES = {"demo", "question", "tutorial", "workshop", "other"}
 STATUSES = {"active", "superseded"}
 REQUIRED = ("title", "type", "authors", "uxarray_version")
 
