@@ -13,10 +13,3 @@ repos:
         exclude: ^INDEX\.md$
       - id: trailing-whitespace
         exclude: ^INDEX\.md$
-
-  - repo: https://github.com/kynan/nbstripout
-    rev: 0.9.1
-    hooks:
-      - id: nbstripout
-        # To keep outputs for a showcase entry, add it here, e.g.:
-        # exclude: ^entries/2026-10-14_agu-workshop/

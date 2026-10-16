@@ -31,13 +31,13 @@
 
 ## Guidelines
 
-- **No large data.** Files over 1 MB are rejected by a pre-commit check, and common data
+- **No large data.** Files over 10 MB are rejected by a pre-commit check, and common data
   formats (`*.nc`, `*.grib`, `*.zarr`) are git-ignored. Point to the data instead (a DOI,
   a public URL, an NCAR GDEX or Campaign Storage path, or a small download script). For a
   genuinely tiny sample file, use `git add -f`.
-- **Notebook outputs are stripped** on commit by `nbstripout` to keep diffs reviewable.
-  If an entry is a polished showcase that should display outputs on GitHub, add its path
-  to the `exclude` pattern of the nbstripout hook in `.pre-commit-config.yaml`.
+- **Commit notebooks with their outputs.** Many entries run only on HPC systems where the
+  data lives, so the rendered outputs are what other readers see. Keep them reasonably
+  small (e.g. avoid embedding very large plots), and clear any output you don't want shared.
 - **Forgot to install the hooks?** The `pre-commit.ci` bot also runs them on every PR. If it
   flags a fixable issue, comment `pre-commit.ci autofix` (or add the `pre-commit.ci run`
   label) to have it push a fixup commit.
