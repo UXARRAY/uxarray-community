@@ -1,4 +1,4 @@
-I have a mesh and dataset file on NCAR's Glade HPC storage. So, use my Globus compute endpoint and access data on Glade and make computations over there. 
+I have a mesh and dataset file on NCAR's Glade HPC storage. So, use my Globus compute endpoint and access data on Glade and make computations over there.
 
 Mesh (CESM ne120 spectral element): /glade/p/cesmdata/cseg/inputdata/share/scripgrids/ne120np4_pentagons_100310.nc
 

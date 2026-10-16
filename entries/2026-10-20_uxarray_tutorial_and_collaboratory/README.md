@@ -20,7 +20,7 @@ data usage, etc.
 ## How to run
 
 The conda environment entitled `uxarray-usclivar` is to be reused from UXarray's
-USCLIVAR workshop practicum (9/17/2026) because it is visible to everyone at 
-the time of the event and contains everything (and maybe more) needed. However, 
+USCLIVAR workshop practicum (9/17/2026) because it is visible to everyone at
+the time of the event and contains everything (and maybe more) needed. However,
 this entry provides its own `enviornment.yml` file just in case users want to create an
 environment from scratch.
