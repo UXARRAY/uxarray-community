@@ -1,0 +1,5 @@
+sphinx
+myst-nb
+sphinx-book-theme
+sphinx-copybutton
+pyyaml

@@ -5,7 +5,9 @@ user community. Here you'll find demonstration notebooks from the team, notebook
 together to ask questions or report behavior, workshop and tutorial material, and anything
 else that comes out of working together.
 
-Everything is organized by date. Browse the full catalog in **[INDEX.md](INDEX.md)**.
+Everything is organized by date. Browse the full catalog in **[INDEX.md](INDEX.md)**, or read
+the notebooks with their rendered outputs on the
+**[community site](https://uxarray.github.io/uxarray-community/)**.
 
 ## Layout
 

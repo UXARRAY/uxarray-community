@@ -91,7 +91,7 @@ def collect() -> tuple[list[dict], list[str]]:
     entries, errors = [], []
     if not ENTRIES.is_dir():
         return entries, errors
-    for path in sorted(p for p in ENTRIES.iterdir() if p.is_dir()):
+    for path in sorted(p for p in ENTRIES.iterdir() if p.is_dir() and not p.name.startswith(".")):
         entry, errs = load_entry(path)
         errors.extend(errs)
         if entry:
