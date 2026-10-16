@@ -4,12 +4,19 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      autofix:
+        description: "Commit pre-commit fixes back to the selected branch"
+        type: boolean
+        default: false
 
 jobs:
   pre-commit-on-push:
     # pre-commit.ci only checks pull requests; this is the safety net for
-    # commits pushed directly to main without going through a PR.
-    if: github.event_name == 'push'
+    # commits pushed directly to main without going through a PR. It can also
+    # be run manually from the Actions tab.
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.autofix)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,12 +25,34 @@ jobs:
           python-version: "3.12"
       - uses: pre-commit/action@v3.0.1
 
-  validate-entries:
+  pre-commit-autofix:
+    # Manual fix-up for a branch (usually main) whose lint is broken: runs the
+    # hooks, commits whatever they fixed, then fails if anything is left that
+    # needs a human (e.g. invalid YAML, oversized files).
+    if: github.event_name == 'workflow_dispatch' && inputs.autofix
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: pre-commit-autofix-${{ github.ref }}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml
-      - run: python scripts/build_index.py --check
+      - run: pip install pre-commit
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files --show-diff-on-failure || true
+      - name: Commit fixes if any
+        run: |
+          if git diff --quiet; then
+            echo "Nothing to fix."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Apply pre-commit auto fixes"
+          git push
+      - name: Verify all hooks pass
+        run: pre-commit run --all-files --show-diff-on-failure
